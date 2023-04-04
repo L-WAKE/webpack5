@@ -1,0 +1,15 @@
+body {
+    background: #dadada;
+    display: inline;
+}
+
+.add-class {
+    background-color: #dadada !important;
+}
+.header {
+  width: 80px;
+  height: 100px;
+}
+
+.header{color:red;display:flex;align-items:center;justify-content:center}.test-loader{width:500px;height:400px;background:url(../../8ae01ff4cd7eed5092c3451e9016f683.jpg) no-repeat;background-size:100% 100%}
+
