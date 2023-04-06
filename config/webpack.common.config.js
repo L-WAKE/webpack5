@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); //自动生成HTML文�
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取分离css文件打包到单独文件
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); //压缩及优化css结构
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //打包之前清除旧的打包文件 变量名称上的 花括号一定要带上
+const timeStamp = new Date().getTime(); //生成时间戳.避免发布新版本时读取缓存文件
 
 module.exports = {
   // 1：单入口 多文件的形式  多入口可写成数组格式，单入口只写一个就行
@@ -19,7 +20,9 @@ module.exports = {
   //   },
   output: {
     path: path.resolve(__dirname, "../build"), // 这里是出口文件夹-指文件打包后存放的路径
-    filename: "bundle.js", // 这个是出口文件-针对第一种单入口
+    filename: `js/js[name].${timeStamp}.js`,
+    chunkFilename: `js/chunk.[id].${timeStamp}.js`,
+    // filename: "bundle.js", // 这个是出口文件-针对第一种单入口
     // filename: "[name].js", // 这里的name对应着entry的属性名就是(pageOne、pageTwo)-针对第二种多入口
   },
   // 引入第三方文件库
@@ -32,7 +35,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "static/css/main.css",
+      filename: `css/[name].${timeStamp}.css`,
+      chunkFilename: `css/chunk.[id].${timeStamp}.css`,
+      // filename: "css/main.css",
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html", // 指定模板文件
