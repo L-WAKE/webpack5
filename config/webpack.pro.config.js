@@ -35,4 +35,5 @@ module.exports = merge(common, {
   plugins: [
     // 生产环境插件...
   ],
+  mode: "production", //生产环境
 });

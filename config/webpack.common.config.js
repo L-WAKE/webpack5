@@ -5,14 +5,16 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); //自动生成HTML文件插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取分离css文件打包到单独文件
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); //压缩及优化css结构
+// const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); //压缩及优化css结构
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //打包之前清除旧的打包文件 变量名称上的 花括号一定要带上
 const timeStamp = new Date().getTime(); //生成时间戳.避免发布新版本时读取缓存文件
+const VueLoaderPlugin = require("vue-loader/lib/plugin"); //vue-loader
+const srcPath = path.join(__dirname, "../", "src");
 
 module.exports = {
   // 1：单入口 多文件的形式  多入口可写成数组格式，单入口只写一个就行
   entry: "./src/main.js",
-
+  // entry: path.join(srcPath, "main"), //入口文件
   // 2：多入口 多出口的形式  可以是对象
   //   entry: {
   //     main: "../src/main.js",
@@ -29,10 +31,13 @@ module.exports = {
   resolve: {
     alias: {
       jQuery: path.resolve(__dirname, "src/outflie/jquery-v3.6.4.js"), // 这里写第三方库所在的路径
+      // "@": resolve("src"), //配置可使用@表示项目 根src目录
+      "@": path.resolve(__dirname, "../src"),
     },
   },
   // 插件
   plugins: [
+    new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `css/[name].${timeStamp}.css`,
@@ -40,6 +45,7 @@ module.exports = {
       // filename: "css/main.css",
     }),
     new HtmlWebpackPlugin({
+      title: "我的webpack应用",
       template: "./public/index.html", // 指定模板文件
       filename: "main.html", // 指定打包后的html文件名称
       minify: {
@@ -57,16 +63,21 @@ module.exports = {
       jQuery: "jQuery",
     }),
   ],
-  devServer: {
-    static: "./build", // 设置服务器访问的基本目录
-    host: "localhost", // 服务器的ip地址
-    port: 8088, // 端口号
-    open: true, // 是否自动打开页面，true:自动打开，false:不打开
-    compress: true, // 是否启用 gzip 压缩
-    hot: true, // 模块热替换
-  },
+  // devServer: {
+  //   static: "./build", // 设置服务器访问的基本目录
+  //   host: "localhost", // 服务器的ip地址
+  //   port: 8088, // 端口号
+  //   open: false, // 是否自动打开页面，true:自动打开，false:不打开
+  //   compress: true, // 是否启用 gzip 压缩
+  //   hot: true, // 模块热替换
+  // },
   module: {
     rules: [
+      // 处理vue文件
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
       // 样式处理的loader
       //   {
       //     test: /\.(scss|less|css)$/,
