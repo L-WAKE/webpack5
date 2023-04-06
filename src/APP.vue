@@ -1,18 +1,28 @@
 <template>
+  <!-- <div id="app">
+    <p class="example">app{{ msg }}</p>
+    <button @click="tap">点击</button>
+  </div> -->
   <div id="app">
     <router-view />
   </div>
 </template>
-
 <script>
 export default {
-  name: "WebpackApp",
   data() {
-    return {};
+    return {
+      msg: "我是一条信息",
+    };
   },
-  mounted() {},
-
-  methods: {},
+  methods: {
+    tap() {
+      console.log("23234");
+    },
+  },
 };
 </script>
-<style lang="scss" scoped></style>
+<style>
+.example {
+  color: red;
+}
+</style>

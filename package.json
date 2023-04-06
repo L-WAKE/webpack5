@@ -8,7 +8,9 @@
     "bulid:pro": "webpack --mode production --config ./config/webpack.pro.config.js",
     "bulid:start": "webpack-dev-server --mode development --config ./config/webpack.dev.config.js",
     "serve": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.config.js",
-    "dev": "vue-cli-service serve"
+    "dev:my": "webpack serve --config config/webpack.dev.config.js",
+    "build": "webpack --config config/webpack.prod.js",
+    "dev": "webpack serve --config config/webpack.dev.js"
   },
   "author": "",
   "license": "ISC",

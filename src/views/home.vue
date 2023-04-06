@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="title">这是我用webpack5构建的vue2项目</div>
+    <div class="title">基于webpack5构建的vue2项目</div>
   </div>
 </template>
 <script>
@@ -10,9 +10,12 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .home {
   color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .title {
     font-size: 30px;
   }
