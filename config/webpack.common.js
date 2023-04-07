@@ -2,10 +2,10 @@
 //webpack5教程地址： https://www.dgrt.cn/news/show-3961996.html?action=onClick
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); //自动生成HTML文件插件
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取分离css文件打包到单独文件
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取分离css文件打包到单独文件
 // const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); //压缩及优化css结构
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //打包之前清除旧的打包文件 变量名称上的 花括号一定要带上
-const timeStamp = new Date().getTime(); //生成时间戳.避免发布新版本时读取缓存文件
+// const timeStamp = new Date().getTime(); //生成时间戳.避免发布新版本时读取缓存文件
 const VueLoaderPlugin = require("vue-loader/lib/plugin"); //vue-loader
 
 const { srcPath, publicPath } = require("./paths");
@@ -20,7 +20,6 @@ module.exports = {
   },
   entry: path.join(srcPath, "main"), //入口文件
   module: {
-    //省略了...
     rules: [
       // 处理vue文件
       {
@@ -67,11 +66,11 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: `css/[name].${timeStamp}.css`,
-      chunkFilename: `css/chunk.[id].${timeStamp}.css`,
-      // filename: "css/main.css",
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: `css/[name].${timeStamp}.css`,
+    //   chunkFilename: `css/chunk.[id].${timeStamp}.css`,
+    //   filename: "css/main.css",
+    // }),
     new HtmlWebpackPlugin({
       template: path.join(publicPath, "index.html"), //模板html
       filename: "index.html", // 生成的文件名

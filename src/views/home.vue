@@ -12,7 +12,7 @@ export default {
   },
   mounted() {
     // debugger;
-    console.log("2222");
+    console.log("2222", process.env.NODE_ENV);
   },
 };
 </script>

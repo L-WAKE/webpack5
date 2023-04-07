@@ -14,9 +14,6 @@ module.exports = merge(webpackCommonConf, {
   },
   plugins: [
     // new RemoveConsolePlugin(),//自定义插件
-    new webpack.DefinePlugin({
-      ENV: JSON.stringify("production"), // window.ENV = 'production'
-    }),
   ],
   optimization: {
     minimize: true,
