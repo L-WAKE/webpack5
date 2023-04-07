@@ -1,13 +1,12 @@
 const commonWebpackConfig = require("./webpack.common");
 const webpack = require("webpack");
 const { merge } = require("webpack-merge");
-// 自定义插件
-const RemoveConsolePlugin = require("../src/plugins/RemoveConsolePlugin.js"); //去除代码中的debugger和console
 
 module.exports = merge(commonWebpackConfig, {
   mode: "development",
+  // 开启持久化缓存-提升第二次启动速度
+  cache: true,
   plugins: [
-    // new RemoveConsolePlugin(),
     new webpack.DefinePlugin({
       ENV: JSON.stringify("development"), // window.ENV = 'development'
     }),

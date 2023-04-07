@@ -1,8 +1,7 @@
 <template>
   <div class="home">
-    <div class="title">基于webpack5构建的vue2项目</div>
-    <router-link to="/login">登录</router-link>
-    <router-link to="/my">我的</router-link>
+    <div class="title">我的个人中心</div>
+    <button @click="$router.back()">返回</button>
   </div>
 </template>
 <script>
@@ -10,19 +9,15 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    // debugger;
-    console.log("2222");
-  },
+  mounted() {},
 };
 </script>
 <style scoped lang="scss">
 .home {
-  color: red;
+  color: rgb(255, 0, 157);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   .title {
     font-size: 30px;
   }

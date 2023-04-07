@@ -10,6 +10,14 @@ const routes = [
     path: "/",
     component: () => import("@/views/home.vue"),
   },
+  {
+    path: "/login",
+    component: () => import("@/views/login/index.vue"),
+  },
+  {
+    path: "/my",
+    component: () => import("@/views/my/index.vue"),
+  },
 ];
 // 4. 创建路由实例
 const router = new Router({
