@@ -8,15 +8,22 @@ Vue.use(Router);
 const routes = [
   {
     path: "/",
-    component: () => import("@/views/home.vue"),
+    component: () => import("@/layout/index.vue"),
+    redirect: "/home",
+    children: [
+      {
+        path: "/home",
+        component: () => import("@/views/home.vue"),
+      },
+      {
+        path: "/my",
+        component: () => import("@/views/my/index.vue"),
+      },
+    ],
   },
   {
     path: "/login",
     component: () => import("@/views/login/index.vue"),
-  },
-  {
-    path: "/my",
-    component: () => import("@/views/my/index.vue"),
   },
 ];
 // 4. 创建路由实例
