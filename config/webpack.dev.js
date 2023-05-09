@@ -9,7 +9,7 @@ module.exports = merge(commonWebpackConfig, {
   devServer: {
     port: 8090, //服务器监听的端口
     host: "0.0.0.0", //服务器开起的ip地址
-    open: true, // 是否打开浏览器提供访问
+    open: false, // 是否打开浏览器提供访问
     //hot: true, // 需要配合webpack.HotModuleReplacementPlugin使用 热更新
     //compress: true, // 是否为每个静态文件启动gzip压缩 也可以使用命令：npx webpack serve --compress
     //开发环境下配置代理
