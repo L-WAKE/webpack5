@@ -1,5 +1,8 @@
 // 放公共的配置
 //webpack5教程地址： https://www.dgrt.cn/news/show-3961996.html?action=onClick
+
+//分包教程地址：https://blog.csdn.net/u014361280/article/details/125737041
+
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); //自动生成HTML文件插件
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取分离css文件打包到单独文件
