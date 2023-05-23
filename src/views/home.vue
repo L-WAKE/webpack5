@@ -6,6 +6,8 @@
   </div>
 </template>
 <script>
+import '../static/js/index'
+import '../static/js/pageb'
 export default {
   data() {
     return {};

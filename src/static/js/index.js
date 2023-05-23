@@ -1,3 +1,3 @@
-export default {
-  testTree: 1,
-};
+import $ from "jquery";
+console.log("this is testa");
+export default "testa";
