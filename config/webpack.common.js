@@ -67,6 +67,11 @@ module.exports = {
           },
         },
       },
+      // 把源文件中的所有文本转换为大写：
+      {
+        test: /\.txt$/,
+        use: path.resolve(__dirname, "../src/loader/upper-case-loader.js"),
+      },
     ],
   },
   plugins: [
