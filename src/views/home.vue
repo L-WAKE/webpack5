@@ -3,14 +3,21 @@
     <div class="title">基于webpack5构建的vue2项目</div>
     <router-link to="/login">登录</router-link>
     <router-link to="/my">我的</router-link>
+    <br />
+    <button @click="getText">获取text</button>
   </div>
 </template>
 <script>
-import '../static/js/index'
-import '../static/js/pageb'
+import "../static/js/index";
+import "../static/js/pageb";
+
 export default {
   data() {
     return {};
+  },
+  methods: {
+    getText() {
+    },
   },
   mounted() {
     // debugger;
